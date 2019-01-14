@@ -19,7 +19,7 @@ public abstract class UtilEscolar {
 	}
 	
 	public void moverCoordenadaY(int movimiento) {
-		this.coordenadaY+=(this.coordenadaY+movimiento<=0)?0:movimiento;
+		this.coordenadaY+=(this.coordenadaY+movimiento<=0)?0:movimiento;    //Movimiento debe ser positivo
 	}
 	
 	public void moverCoordenadaX(int movimiento) {
@@ -27,8 +27,8 @@ public abstract class UtilEscolar {
 	}
 	
 	public void rotar(int rotacion) {
-		if(this.rotacion+rotacion>=0)
-			this.rotacion+=(this.rotacion+rotacion>=360)?rotacion-360:rotacion; 
+			if(this.rotacion+rotacion>=0)                                   //Rotacion debe ser positiva
+			this.rotacion+=rotacion%360; 									//Modulo de 360 grados
 	}
 	
 	public void agregar(UtilEscolar componente){};

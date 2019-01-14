@@ -6,7 +6,7 @@ public class SingleOutput {
 	private SingleOutput() {}
 	
 	public static SingleOutput getImpresion() {
-		return (impresion==null)?impresion=new SingleOutput():null;
+		return (impresion==null)?impresion=new SingleOutput():impresion;
 	}
 	
 	public void imprimir(String mensaje) {

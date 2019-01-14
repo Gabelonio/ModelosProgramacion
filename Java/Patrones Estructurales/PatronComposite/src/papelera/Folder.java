@@ -12,15 +12,19 @@ public class Folder extends UtilEscolar{
 		separadores=new ArrayList<Separador>();
 	}
 	
+	/*
+	 * Movimientos en X e Y y rotacion desde una clase compuesta 
+	 * usando la logica de la clase padre
+	 */
 	@Override
-	public void moverCoordenadaY(int movimiento) {
+	public void moverCoordenadaY(int movimiento) {                    
 		if(this.coordenadaY+movimiento>=0){
 			
 			for(int i=0;i<hojas.size();i++)
-				this.hojas.get(i).coordenadaY+=movimiento;
+				this.hojas.get(i).moverCoordenadaY(movimiento);      
 			for(int i=0;i<separadores.size();i++)
-				this.separadores.get(i).coordenadaY+=movimiento;
-			this.coordenadaY+=movimiento; 
+				this.separadores.get(i).moverCoordenadaY(movimiento);
+			super.moverCoordenadaY(movimiento);                
 			
 		}
 	}
@@ -30,10 +34,10 @@ public class Folder extends UtilEscolar{
 		if(this.coordenadaX+movimiento>=0){
 			
 			for(int i=0;i<hojas.size();i++)
-				this.hojas.get(i).coordenadaX+=movimiento;
+				this.hojas.get(i).moverCoordenadaX(movimiento);
 			for(int i=0;i<separadores.size();i++)
-				this.separadores.get(i).coordenadaX+=movimiento;
-			this.coordenadaX+=movimiento; 
+				this.separadores.get(i).moverCoordenadaX(movimiento);
+			super.moverCoordenadaX(movimiento); 
 			
 		}
 	}
@@ -43,12 +47,12 @@ public class Folder extends UtilEscolar{
 		if(this.rotacion+rotacion>=0) {
 			
 			for(int i=0;i<hojas.size();i++) {
-				this.hojas.get(i).rotacion+=(this.rotacion+rotacion>=360)?rotacion-360:rotacion;
+				this.hojas.get(i).rotar(rotacion);
 			}
 			for(int i=0;i<separadores.size();i++) {
-				this.separadores.get(i).rotacion+=(this.rotacion+rotacion>=360)?rotacion-360:rotacion;
+				this.separadores.get(i).rotar(rotacion);
 			}
-			this.rotacion+=(this.rotacion+rotacion>=360)?rotacion-360:rotacion;
+			super.rotar(rotacion);
 		}
 	}
 	
