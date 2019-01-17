@@ -2,7 +2,7 @@ package puntosinformacion;
 
 public class PruebaFlyWeight {
 	public static void main(String args[]) {
-		GeneradorPtoInformacion generador=new GeneradorPtoInformacion();
+		GeneradorPtoInformacion generador=GeneradorPtoInformacion.getGeneradorPtoInformacion();
 		
 		InterfazPuntoInformacion puntoUno=generador.llamarPuntoInformacion("PuntoAzul");
 		InterfazPuntoInformacion puntoDos=generador.llamarPuntoInformacion("PuntoVerde");

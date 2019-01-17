@@ -3,10 +3,18 @@ package puntosinformacion;
 import java.util.ArrayList;
 
 public class GeneradorPtoInformacion {
+	
+	private static GeneradorPtoInformacion generadorPuntos;
 	private ArrayList<InterfazPuntoInformacion> puntosInformacion;
 	
-	GeneradorPtoInformacion(){
-		puntosInformacion=new ArrayList<InterfazPuntoInformacion>();
+	private GeneradorPtoInformacion(){}
+	
+	public static GeneradorPtoInformacion getGeneradorPtoInformacion() {
+		if(generadorPuntos==null) {
+			generadorPuntos=new GeneradorPtoInformacion();
+			generadorPuntos.puntosInformacion=new ArrayList<InterfazPuntoInformacion>();
+		}
+		return generadorPuntos; 
 	}
 	
 	public InterfazPuntoInformacion llamarPuntoInformacion(String identificador) {
